@@ -742,6 +742,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5179626073461577685, guid: 436db98df44e0459f847cddf62ec078f,
+        type: 3}
+      propertyPath: breakSound
+      value: 
+      objectReference: {fileID: 8300000, guid: fece1f608b2e84345a31316e0fd087ba, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 436db98df44e0459f847cddf62ec078f, type: 3}
 --- !u!4 &685041460 stripped
@@ -1293,9 +1298,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 105101555162857541, guid: 91ad6869e940c4c03825183ccde4d0ee,
         type: 3}
+      propertyPath: ballSounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 105101555162857541, guid: 91ad6869e940c4c03825183ccde4d0ee,
+        type: 3}
       propertyPath: paddle1
       value: 
       objectReference: {fileID: 775509300}
+    - target: {fileID: 105101555162857541, guid: 91ad6869e940c4c03825183ccde4d0ee,
+        type: 3}
+      propertyPath: ballSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c5b0e412598e44ec8be89d299cbbac43, type: 3}
+    - target: {fileID: 105101555162857541, guid: 91ad6869e940c4c03825183ccde4d0ee,
+        type: 3}
+      propertyPath: ballSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7d7eb7037957b4bc6a2131f195172913, type: 3}
+    - target: {fileID: 105101555162857541, guid: 91ad6869e940c4c03825183ccde4d0ee,
+        type: 3}
+      propertyPath: ballSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b6767f896adf4f2da581fe609f3c9a5, type: 3}
+    - target: {fileID: 105101555162857541, guid: 91ad6869e940c4c03825183ccde4d0ee,
+        type: 3}
+      propertyPath: ballSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: b40169f99d8c84d909c5c733c2e0683d, type: 3}
+    - target: {fileID: 105101555162857541, guid: 91ad6869e940c4c03825183ccde4d0ee,
+        type: 3}
+      propertyPath: ballSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: c5b0e412598e44ec8be89d299cbbac43, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91ad6869e940c4c03825183ccde4d0ee, type: 3}
 --- !u!1 &2111970640 stripped
@@ -1315,7 +1350,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
