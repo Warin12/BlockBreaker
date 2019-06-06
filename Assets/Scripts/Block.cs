@@ -4,22 +4,65 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    // config parameters
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject blockSparklesVFX;
+    [SerializeField] Sprite[] hitSprites;
     
-    Level level;
+    //cached reference
 
+
+    Level level;
+    // state variables
+    [SerializeField] int timesHit;
     private void Start()
     {
+        CountBreakableBlocks();
+    }
+    private void CountBreakableBlocks()
+    {
         level = FindObjectOfType<Level>();
-        level.countBreakableblocks();
+        if (tag == "Breakable")
+        {
+            level.CountBlocks();
+        }
+
     }
    
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       DestroyBlock(); 
+       if (tag == "Breakable")
+       {
+         HandleHit();
+       }
+       
+    
     }
-
+    private void ShowNextHitSprite()
+    {
+        int spriteIndex = timesHit - 1;
+        if(hitSprites[spriteIndex] != null)
+        {
+        GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+        }
+        else
+        {
+          Debug.LogError("Block sprite is missing from array" + gameObject.name);  
+        }
+    }
+    private void HandleHit()
+    {
+         timesHit++;
+         int maxHits = hitSprites.Length + 1;
+         if(timesHit >= maxHits)
+         {
+              DestroyBlock(); 
+         }
+         else
+         {
+           ShowNextHitSprite();
+         }
+    }
     private void DestroyBlock()
     {
         PlayBlockDestroySFX();
