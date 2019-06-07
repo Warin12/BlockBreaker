@@ -8,17 +8,20 @@ public class Ball : MonoBehaviour
     [SerializeField] float xPush = 2f;
     [SerializeField] float yPush = 15f;
     [SerializeField] AudioClip[] ballSounds;
+    [SerializeField] float RandomFactor = 0.2f;
     Vector2 paddleToBallVector;
     bool hasStarted = false;
 
     //cached component references
     AudioSource myAudioSource;
     
+    Rigidbody2D myRigidBody2D;
     
     void Start()
     {
         paddleToBallVector = transform.position - paddle1.transform.position;
         myAudioSource = GetComponent<AudioSource>();
+        myRigidBody2D = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
@@ -35,7 +38,7 @@ public class Ball : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             hasStarted = true;
-            GetComponent<Rigidbody2D>().velocity = new Vector2 (xPush, yPush);
+            myRigidBody2D.velocity = new Vector2 (xPush, yPush);
         
         }
     }
@@ -48,12 +51,15 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Vector2 velocityTweak = new Vector2
+        (Random.Range(0f, RandomFactor),
+        Random.Range(0f, RandomFactor));
+        
         if (hasStarted)
         {
         AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];    
         myAudioSource.PlayOneShot(clip);
-        
-        
+        myRigidBody2D.velocity += velocityTweak;
         }
     }
 }
