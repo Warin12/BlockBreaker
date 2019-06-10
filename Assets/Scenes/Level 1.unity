@@ -637,6 +637,16 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9003648748514646879, guid: 799e33402f9e34f7491aaa1600f7daf1,
+        type: 3}
+      propertyPath: isAutoPlayEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003648748514646879, guid: 799e33402f9e34f7491aaa1600f7daf1,
+        type: 3}
+      propertyPath: gameSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 799e33402f9e34f7491aaa1600f7daf1, type: 3}
 --- !u!1001 &425540001
@@ -2843,7 +2853,7 @@ PrefabInstance:
     - target: {fileID: 105101555162857541, guid: 91ad6869e940c4c03825183ccde4d0ee,
         type: 3}
       propertyPath: RandomFactor
-      value: 0.5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91ad6869e940c4c03825183ccde4d0ee, type: 3}
